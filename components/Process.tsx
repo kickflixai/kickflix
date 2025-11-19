@@ -5,18 +5,18 @@ import { Reveal } from './ui/Reveal';
 const steps = [
   {
     id: '01',
-    title: 'RADICAL SPEED',
-    desc: 'Traditional production takes months. We move at the speed of the internet. We turn concepts into campaigns in days, allowing your brand to react to trends while others are still planning.'
+    title: 'CREATIVE STRATEGY',
+    desc: 'We start by deconstructing your Brand DNA to architect a narrative designed for virality. We don\'t just look for ideas; we engineer concepts based on deep market insights to ensure maximum audience retention.'
   },
   {
     id: '02',
-    title: 'INFINITE PRODUCTION',
-    desc: 'We’ve killed the budget constraint. Whether you need a cyberpunk city or a macro shot, we create million-dollar visuals without the million-dollar set. If you can imagine it, we can create it.'
+    title: 'GENERATIVE AI MAGIC',
+    desc: 'We orchestrate a proprietary mesh of over 15 industry-leading AI tools. Our network of specialized AI agents—marketers, storytellers, and cinematographers—collaborate in real-time to craft the perfect shot.'
   },
   {
     id: '03',
-    title: 'ENGINEERED VIRALITY',
-    desc: 'Pretty isn\'t enough; it has to perform. We leverage deep social insights to craft visuals that trigger "Wow" moments. We don\'t just make art; we build assets designed to convert.'
+    title: 'HOLLYWOOD QUALITY',
+    desc: 'The final output is indistinguishable from reality. We apply professional color grading, bespoke sound design, and VFX integration, upscaling every frame to crisp 4K resolution for global broadcast standards.'
   }
 ];
 
