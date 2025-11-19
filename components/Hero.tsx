@@ -53,7 +53,8 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Content - Immediate CSS Animation */}
-      <div className="relative z-30 w-full max-w-[100rem] mx-auto px-4 flex flex-col justify-center h-full items-center text-center mt-8">
+      {/* Updated z-index to z-50 to ensure interaction above marquee */}
+      <div className="relative z-50 w-full max-w-[100rem] mx-auto px-4 flex flex-col justify-center h-full items-center text-center mt-8">
         
         {/* Badge */}
         <div className="animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.1s' }}>
@@ -69,7 +70,8 @@ export const Hero: React.FC = () => {
 
         {/* Main Title */}
         <div className="animate-[slideUp_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.3s' }}>
-           <h1 className="font-display font-black text-[12vw] md:text-[8vw] leading-[0.9] md:leading-[0.85] tracking-tighter text-white uppercase mix-blend-difference opacity-90 drop-shadow-2xl">
+           {/* Capped font size on 2xl to prevent overflow on wide screens */}
+           <h1 className="font-display font-black text-[12vw] md:text-[8vw] 2xl:text-[150px] leading-[0.9] md:leading-[0.85] tracking-tighter text-white uppercase mix-blend-difference opacity-90 drop-shadow-2xl">
             CINEMATIC MARKETING <br />
             FOR <span className="text-brand-yellow text-stroke-hover cursor-none">BOLD BRANDS</span>
            </h1>
@@ -87,14 +89,14 @@ export const Hero: React.FC = () => {
           <a 
             href="#portfolio"
             onClick={scrollToPortfolio}
-            className="group relative px-8 py-4 bg-brand-yellow text-black text-xs font-bold font-mono uppercase tracking-widest overflow-hidden"
+            className="group relative px-8 py-4 bg-brand-yellow text-black text-xs font-bold font-mono uppercase tracking-widest overflow-hidden cursor-pointer"
           >
             <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Our Work</span>
             <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out"></div>
           </a>
           <button 
             onClick={() => setShowReel(true)}
-            className="group flex items-center gap-4 px-4 py-2 text-xs font-bold font-mono uppercase tracking-widest text-white hover:text-brand-yellow transition-colors"
+            className="group flex items-center gap-4 px-4 py-2 text-xs font-bold font-mono uppercase tracking-widest text-white hover:text-brand-yellow transition-colors cursor-pointer"
           >
             <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:border-brand-yellow group-hover:scale-110 transition-all duration-300">
               <Play fill="currentColor" size={10} />

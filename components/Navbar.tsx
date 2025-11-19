@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-brand-black/90 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 w-full z-[100] transition-all duration-700 ${isScrolled ? 'bg-brand-black/90 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
       <div className="max-w-[95%] mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="relative z-50 group">
@@ -76,7 +76,7 @@ export const Navbar: React.FC = () => {
     </nav>
 
     {/* Full Screen Mobile Menu */}
-    <div className={`fixed inset-0 bg-brand-black z-40 flex flex-col justify-center items-center transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+    <div className={`fixed inset-0 bg-brand-black z-[90] flex flex-col justify-center items-center transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
       <div className="flex flex-col gap-8 text-center relative z-10">
         {[
