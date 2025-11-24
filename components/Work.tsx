@@ -158,57 +158,66 @@ export const Work: React.FC = () => {
         </div>
       </div>
 
-      {/* Full Screen Video Modal */}
+      {/* Full Screen Video Modal - Strict Math Logic */}
       {playingVideo && (
-        <div className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-300 backdrop-blur-xl">
+        <div className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center animate-in fade-in duration-300 backdrop-blur-xl">
            
-           {/* Close Button - Positioned relative to container safely */}
-           <div className="relative w-full max-w-7xl">
+           {/* STRICT SIZING CONTAINER */}
+           {/* This calculates the exact dimensions needed to fit within 75vh OR 90vw while keeping 16:9 ratio */}
+           <div 
+             className="relative shadow-2xl bg-black rounded-3xl"
+             style={{
+               // Calculate width based on max height (75vh * 16/9) but clamp to max width (90vw)
+               width: 'min(90vw, calc(75vh * 1.7778))',
+               // Calculate height based on that width
+               height: 'min(75vh, calc(90vw / 1.7778))',
+             }}
+           >
+              
+              {/* Close Button - Attached to top-right of the strict container */}
               <button 
                 onClick={() => setPlayingVideo(null)}
-                className="absolute -top-16 right-0 flex items-center gap-2 text-white hover:text-brand-yellow transition-colors z-50 group"
+                className="absolute -top-12 right-0 flex items-center gap-2 text-white hover:text-brand-yellow transition-colors z-50 group"
               >
                 <span className="text-xs font-mono uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Close</span>
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-yellow group-hover:text-black transition-all">
-                  <X size={20} />
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-yellow group-hover:text-black transition-all">
+                  <X size={18} />
                 </div>
               </button>
 
-              <div className="relative w-full aspect-video">
-                 
-                 {/* AMBILIGHT GLOW LAYER - Refined Masking */}
-                 <div 
-                   className="absolute inset-0 z-[-10] pointer-events-none select-none"
-                   style={{
-                     transform: 'scale(1.5)',
-                     filter: 'blur(100px)',
-                     opacity: 0.8,
-                     maskImage: 'radial-gradient(closest-side, black 60%, transparent 100%)', // Softer external fade
-                     WebkitMaskImage: 'radial-gradient(closest-side, black 60%, transparent 100%)',
-                   }}
-                 >
-                    <iframe
-                      src={`https://player.vimeo.com/video/${playingVideo}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
-                      className="w-full h-full object-cover"
-                      frameBorder="0"
-                      allow="autoplay; fullscreen"
-                    ></iframe>
-                 </div>
+              {/* AMBILIGHT GLOW LAYER */}
+              <div 
+                className="absolute inset-0 z-[-10] pointer-events-none select-none rounded-3xl"
+                style={{
+                    transform: 'scale(1.5)',
+                    filter: 'blur(100px)',
+                    opacity: 0.8,
+                    maskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)',
+                    WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)',
+                }}
+              >
+                <iframe
+                    src={`https://player.vimeo.com/video/${playingVideo}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
+                    className="w-full h-full object-cover rounded-3xl"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen"
+                ></iframe>
+              </div>
 
-                 {/* Main Video Player */}
-                 <div className="w-full h-full rounded-3xl overflow-hidden bg-black shadow-2xl relative z-10">
-                    <div className="absolute inset-0 bg-black scale-[1.01]"> {/* Anti-bleed wrapper */}
-                      <iframe 
+              {/* Main Video Player */}
+              <div className="w-full h-full rounded-3xl overflow-hidden bg-black relative z-10">
+                {/* Scale 1.01 removes sub-pixel white lines */}
+                <div className="w-full h-full transform scale-[1.01]">
+                    <iframe 
                         src={`https://player.vimeo.com/video/${playingVideo}?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&muted=0&playsinline=1`}
                         className="w-full h-full" 
-                        key={playingVideo} // Force re-render on open
+                        key={playingVideo}
                         frameBorder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowFullScreen
                         title="Project Video"
-                      ></iframe>
-                    </div>
-                 </div>
+                    ></iframe>
+                </div>
               </div>
            </div>
         </div>

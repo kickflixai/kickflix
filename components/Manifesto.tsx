@@ -6,19 +6,19 @@ const pillars = [
     id: '01',
     title: 'Radical Speed',
     desc: 'Traditional production takes months. We move at the speed of the internet. We turn concepts into campaigns in days, allowing your brand to react to trends while others are still planning.',
-    video: 'https://www.pexels.com/download/video/34802339/' // Tunnel Speed
+    video: 'https://res.cloudinary.com/dyqus7sfo/video/upload/v1759138742/720p_D_ORSEY_-_PERFUME_sample_bf96e3.mov' // Tunnel Speed
   },
   {
     id: '02',
     title: 'Infinite Production',
     desc: 'We’ve killed the budget constraint. Whether you need a cyberpunk city or a macro shot, we create million-dollar visuals without the million-dollar set. If you can imagine it, we can create it.',
-    video: 'https://www.pexels.com/download/video/34802317/' // Cyberpunk City
+    video: 'https://res.cloudinary.com/dyqus7sfo/video/upload/v1759138730/720p_WIZARD_sample_rrmmsj.mov' // Cyberpunk City
   },
   {
     id: '03',
     title: 'Engineered Virality',
     desc: 'Pretty isn\'t enough; it has to perform. We leverage deep social insights to craft visuals that trigger "Wow" moments. We don\'t just make art; we build assets designed to convert.',
-    video: 'https://www.pexels.com/download/video/34803558/' // Abstract Ink
+    video: 'https://res.cloudinary.com/dyqus7sfo/video/upload/v1759094135/yaozi_-_portfolio_hd_tqcn2g.mov' // Abstract Ink
   }
 ];
 
