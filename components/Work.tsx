@@ -158,19 +158,17 @@ export const Work: React.FC = () => {
         </div>
       </div>
 
-      {/* Full Screen Video Modal - Strict Math Logic */}
+      {/* Full Screen Video Modal - Dynamic Math Logic */}
       {playingVideo && (
         <div className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center animate-in fade-in duration-300 backdrop-blur-xl">
            
-           {/* STRICT SIZING CONTAINER */}
-           {/* This calculates the exact dimensions needed to fit within 75vh OR 90vw while keeping 16:9 ratio */}
+           {/* STRICT DYNAMIC SIZING CONTAINER */}
+           {/* This calculates dimensions to ensure a 3rem padding on all sides while keeping 16:9 ratio */}
            <div 
              className="relative shadow-2xl bg-black rounded-3xl"
              style={{
-               // Calculate width based on max height (75vh * 16/9) but clamp to max width (90vw)
-               width: 'min(90vw, calc(75vh * 1.7778))',
-               // Calculate height based on that width
-               height: 'min(75vh, calc(90vw / 1.7778))',
+               width: 'min(calc(100vw - 6rem), calc((100vh - 6rem) * 1.7778))',
+               height: 'min(calc(100vh - 6rem), calc((100vw - 6rem) / 1.7778))',
              }}
            >
               
