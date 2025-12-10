@@ -71,12 +71,15 @@ export const Resume: React.FC = () => {
     {
       company: "Fortive",
       role: "Process Engineer",
-      period: "Feb 2018 - May 2018",
-      location: "Rochester, New York",
-      description: "Managed the international transfer of manufacturing operations from Neoptix Canada to US headquarters.",
+      period: "Jan 2016 - May 2018",
+      location: "Montreal, Canada / Rochester, NY",
+      description: "Industrial technology conglomerate focusing on professional instrumentation.",
       highlights: [
-         "Led training for the new US-based production team.",
-         "Optimized manufacturing processes to ensure productivity and quality targets were met post-transfer."
+         "R&D & Product Development: Created prototypes and new products, managing lifecycles in Oracle.",
+         "Continuous Improvement: Led Kaizen events, optimized production lines, and reduced waste.",
+         "Technical: Programmed Access databases/interfaces and drafted standard operating procedures.",
+         "Operations: Resolved critical production issues and managed supplier relations.",
+         "Managed the international transfer of manufacturing operations to US headquarters."
       ],
       type: "secondary"
     }
@@ -239,6 +242,7 @@ export const Resume: React.FC = () => {
                   </div>
                   <div className="text-sm text-brand-yellow/80 mb-2">Bachelor's Degree, Process Engineering</div>
                   <p className="text-xs text-gray-500 leading-snug">
+                    Concentration in Software Engineering (1 year).<br/>
                     VP of Communications for the Process Engineering Association.
                   </p>
                </div>
