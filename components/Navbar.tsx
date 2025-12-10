@@ -1,10 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,21 +17,38 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleNavigation = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (location.pathname !== '/') {
+      // If we are on the Resume page, go home first then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      // If we are on Home page, just scroll
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+  };
+
+  const goToResume = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    navigate('/resume');
   };
 
   return (
     <>
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-700 ${isScrolled ? 'bg-brand-black/90 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 w-full z-[100] transition-all duration-700 ${isScrolled || location.pathname === '/resume' ? 'bg-brand-black/90 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
       <div className="max-w-[95%] mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="relative z-50 group">
+        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }} className="relative z-50 group">
           <div className="flex items-center gap-3">
              {/* Logo Icon */}
              <img 
@@ -56,13 +76,22 @@ export const Navbar: React.FC = () => {
             <a 
               key={item.name}
               href={`#${item.id}`}
-              onClick={(e) => scrollToSection(e, item.id)}
+              onClick={(e) => handleNavigation(e, item.id)}
               className="text-xs font-mono font-medium text-white/60 hover:text-brand-yellow uppercase tracking-widest transition-colors duration-300 relative group"
             >
               <span className="mr-1 text-brand-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300">//</span>
               {item.name}
             </a>
           ))}
+          
+          {/* Resume Link */}
+          <a 
+              href="/resume"
+              onClick={goToResume}
+              className={`text-xs font-mono font-medium uppercase tracking-widest transition-colors duration-300 relative group px-4 py-2 border border-white/20 hover:border-brand-yellow hover:text-brand-yellow rounded-sm ${location.pathname === '/resume' ? 'text-brand-yellow border-brand-yellow' : 'text-white'}`}
+          >
+              Resume / CV
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -88,12 +117,19 @@ export const Navbar: React.FC = () => {
           <a 
             key={item.name} 
             href={`#${item.id}`} 
-            onClick={(e) => scrollToSection(e, item.id)}
+            onClick={(e) => handleNavigation(e, item.id)}
             className="text-4xl md:text-6xl font-display font-bold text-transparent text-stroke hover:text-brand-yellow hover:border-none transition-all duration-300 uppercase"
           >
             {item.name}
           </a>
         ))}
+        <a 
+            href="/resume" 
+            onClick={goToResume}
+            className="text-2xl font-mono text-brand-yellow uppercase tracking-widest mt-8 border-b border-brand-yellow pb-2"
+        >
+            View Resume
+        </a>
       </div>
     </div>
     </>

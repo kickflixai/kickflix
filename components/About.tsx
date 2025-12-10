@@ -60,7 +60,7 @@ export const About: React.FC = () => {
                   With over a decade of expertise in high-stakes sales and marketing, Solo has advised hundreds of brands, engineering growth strategies that have engaged millions of users worldwide. He doesn't just understand how to create content; he understands the psychology of why people watch it.
                 </p>
                 <p>
-                  At <strong className="text-white">KICKFLIX</strong>, Solo harnesses this background to bridge the gap between narrative art and commercial strategy. He has moved beyond traditional "growth hacking" to pioneer <span className="text-brand-yellow italic">Generative Growth</span>—using AI filmmaking not just to tell stories, but to build worlds that drive measurable brand evolution.
+                  At <strong className="text-white">KICKFLIX</strong>, Solo harnesses this background to bridge the gap between narrative art and commercial strategy. He was <span className="text-brand-yellow italic">one of the first AI Filmmakers</span> in the world and remains a top industry leader—using generative cinema not just to tell stories, but to build worlds that drive measurable brand evolution.
                 </p>
               </div>
             </Reveal>
